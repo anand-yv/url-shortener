@@ -30,6 +30,10 @@ public class JwtUtils {
         return null;
     }
 
+    private Key key() {
+        return Keys.hmacShaKeyFor(Decoders.BASE64.decode(jwtSecret));
+    }
+
     public String generateToken(UserDetailsImpl userDetails) {
         String userName = userDetails.getUsername();
         String roles = userDetails.getAuthorities().stream()
@@ -51,10 +55,6 @@ public class JwtUtils {
                    .parseSignedClaims(token)
                    .getPayload()
                    .getSubject();
-    }
-
-    private Key key() {
-        return Keys.hmacShaKeyFor(Decoders.BASE64.decode(jwtSecret));
     }
 
     public boolean validateToken(String token) {

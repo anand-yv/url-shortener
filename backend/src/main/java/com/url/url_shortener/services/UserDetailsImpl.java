@@ -42,7 +42,6 @@ public class UserDetailsImpl implements UserDetails {
                 user.getPassword(),
                 Collections.singletonList(authority)
         );
-
     }
 
     @Override
