@@ -9,7 +9,7 @@ import java.util.List;
 @Data
 @Table(name = "users")
 public class User {
-    private final String role = "ROLE_USER";
+    private String role = "ROLE_USER";
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
