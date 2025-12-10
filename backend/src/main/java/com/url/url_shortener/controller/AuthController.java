@@ -3,7 +3,7 @@ package com.url.url_shortener.controller;
 import com.url.url_shortener.dtos.RegisterRequest;
 import com.url.url_shortener.models.User;
 import com.url.url_shortener.services.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/auth")
+@AllArgsConstructor
 public class AuthController {
 
-    @Autowired
     private UserService userService;
 
     @PostMapping("/public/register")

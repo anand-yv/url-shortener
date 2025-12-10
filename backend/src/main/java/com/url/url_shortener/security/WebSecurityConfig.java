@@ -46,10 +46,10 @@ public class WebSecurityConfig {
         httpSecurity
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/auth/**").permitAll()
-                .requestMatchers("/api/urls/**").authenticated()
-                .requestMatchers(("/{shortUrl}")).permitAll()
-                .anyRequest().authenticated()
+                        .requestMatchers("/api/auth/**").permitAll()
+                        .requestMatchers("/api/urls/**").authenticated()
+                        .requestMatchers(("/{shortUrl}")).permitAll()
+                        .anyRequest().authenticated()
                 );
         httpSecurity.authenticationProvider(authenticationProvider());
         httpSecurity.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
